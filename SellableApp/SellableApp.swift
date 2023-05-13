@@ -1,5 +1,5 @@
 //
-//  SellableAppApp.swift
+//  SellableApp.swift
 //  SellableApp
 //
 //  Created by Ярослав Ульяненков on 13.05.2023.
@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct SellableAppApp: App {
+struct SellableApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ScannerView()
         }
     }
 }
