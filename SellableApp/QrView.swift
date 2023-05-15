@@ -12,6 +12,12 @@ struct QrView: View {
     var qrId: String
     
     @State private var amount = ""
+    @ObservedObject var viewModel: ViewModel
+    
+    init(qrId: String) {
+        self.qrId = qrId
+        viewModel = ViewModel(qrId: qrId)
+    }
     
     var body: some View {
         VStack {

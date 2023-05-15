@@ -12,6 +12,11 @@
 		991ACE542A0FEBA300BDF502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 991ACE532A0FEBA300BDF502 /* Assets.xcassets */; };
 		991ACE572A0FEBA300BDF502 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 991ACE562A0FEBA300BDF502 /* Preview Assets.xcassets */; };
 		991ACE5F2A0FED9100BDF502 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 991ACE5E2A0FED9100BDF502 /* CodeScanner */; };
+		995D1E082A129B8E006BA92E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 995D1E072A129B8E006BA92E /* Alamofire */; };
+		995D1E0B2A129C63006BA92E /* QrCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D1E0A2A129C63006BA92E /* QrCode.swift */; };
+		995D1E0D2A129D81006BA92E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D1E0C2A129D81006BA92E /* NetworkError.swift */; };
+		995D1E0F2A129DAA006BA92E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D1E0E2A129DAA006BA92E /* Service.swift */; };
+		995D1E112A12A2DD006BA92E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D1E102A12A2DD006BA92E /* ViewModel.swift */; };
 		998BC85A2A0FFF5F00720070 /* QrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998BC8592A0FFF5F00720070 /* QrView.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +26,11 @@
 		991ACE512A0FEB9F00BDF502 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		991ACE532A0FEBA300BDF502 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		991ACE562A0FEBA300BDF502 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		995D1E0A2A129C63006BA92E /* QrCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCode.swift; sourceTree = "<group>"; };
+		995D1E0C2A129D81006BA92E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		995D1E0E2A129DAA006BA92E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		995D1E102A12A2DD006BA92E /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		995D1E122A12A515006BA92E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		998BC8592A0FFF5F00720070 /* QrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -30,6 +40,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				991ACE5F2A0FED9100BDF502 /* CodeScanner in Frameworks */,
+				995D1E082A129B8E006BA92E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,11 +66,15 @@
 		991ACE4E2A0FEB9F00BDF502 /* SellableApp */ = {
 			isa = PBXGroup;
 			children = (
+				995D1E122A12A515006BA92E /* Info.plist */,
+				995D1E092A129C50006BA92E /* Model */,
 				991ACE4F2A0FEB9F00BDF502 /* SellableApp.swift */,
 				991ACE512A0FEB9F00BDF502 /* ScannerView.swift */,
 				991ACE532A0FEBA300BDF502 /* Assets.xcassets */,
 				991ACE552A0FEBA300BDF502 /* Preview Content */,
 				998BC8592A0FFF5F00720070 /* QrView.swift */,
+				995D1E0E2A129DAA006BA92E /* Service.swift */,
+				995D1E102A12A2DD006BA92E /* ViewModel.swift */,
 			);
 			path = SellableApp;
 			sourceTree = "<group>";
@@ -70,6 +85,15 @@
 				991ACE562A0FEBA300BDF502 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		995D1E092A129C50006BA92E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				995D1E0C2A129D81006BA92E /* NetworkError.swift */,
+				995D1E0A2A129C63006BA92E /* QrCode.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +114,7 @@
 			name = SellableApp;
 			packageProductDependencies = (
 				991ACE5E2A0FED9100BDF502 /* CodeScanner */,
+				995D1E072A129B8E006BA92E /* Alamofire */,
 			);
 			productName = SellableApp;
 			productReference = 991ACE4C2A0FEB9F00BDF502 /* SellableApp.app */;
@@ -121,6 +146,7 @@
 			mainGroup = 991ACE432A0FEB9F00BDF502;
 			packageReferences = (
 				991ACE5D2A0FED9100BDF502 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				995D1E062A129B8E006BA92E /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 991ACE4D2A0FEB9F00BDF502 /* Products */;
 			projectDirPath = "";
@@ -149,8 +175,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				991ACE522A0FEB9F00BDF502 /* ScannerView.swift in Sources */,
+				995D1E0B2A129C63006BA92E /* QrCode.swift in Sources */,
 				991ACE502A0FEB9F00BDF502 /* SellableApp.swift in Sources */,
 				998BC85A2A0FFF5F00720070 /* QrView.swift in Sources */,
+				995D1E0D2A129D81006BA92E /* NetworkError.swift in Sources */,
+				995D1E0F2A129DAA006BA92E /* Service.swift in Sources */,
+				995D1E112A12A2DD006BA92E /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +312,7 @@
 				DEVELOPMENT_TEAM = W854V7BR4R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SellableApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Sellable;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Необходимо для сканирования QR кода";
@@ -313,6 +344,7 @@
 				DEVELOPMENT_TEAM = W854V7BR4R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SellableApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Sellable;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Необходимо для сканирования QR кода";
@@ -365,6 +397,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		995D1E062A129B8E006BA92E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -372,6 +412,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 991ACE5D2A0FED9100BDF502 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		995D1E072A129B8E006BA92E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 995D1E062A129B8E006BA92E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

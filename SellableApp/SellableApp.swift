@@ -11,7 +11,7 @@ import SwiftUI
 struct SellableApp: App {
     var body: some Scene {
         WindowGroup {
-            ScannerView()
+            QrView(qrId: "AS7F126E74B844FBA9584BE6A5B27B42")
         }
     }
 }
