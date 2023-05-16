@@ -18,6 +18,9 @@
 		995D1E0F2A129DAA006BA92E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D1E0E2A129DAA006BA92E /* Service.swift */; };
 		995D1E112A12A2DD006BA92E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D1E102A12A2DD006BA92E /* ViewModel.swift */; };
 		998BC85A2A0FFF5F00720070 /* QrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998BC8592A0FFF5F00720070 /* QrView.swift */; };
+		99CF37122A13A822006E00BC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CF37112A13A822006E00BC /* Config.swift */; };
+		99CF37142A13B224006E00BC /* OrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CF37132A13B224006E00BC /* OrderRequest.swift */; };
+		99CF37162A13B3A6006E00BC /* OrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CF37152A13B3A6006E00BC /* OrderResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		995D1E102A12A2DD006BA92E /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		995D1E122A12A515006BA92E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		998BC8592A0FFF5F00720070 /* QrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrView.swift; sourceTree = "<group>"; };
+		99CF37112A13A822006E00BC /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		99CF37132A13B224006E00BC /* OrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRequest.swift; sourceTree = "<group>"; };
+		99CF37152A13B3A6006E00BC /* OrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 				998BC8592A0FFF5F00720070 /* QrView.swift */,
 				995D1E0E2A129DAA006BA92E /* Service.swift */,
 				995D1E102A12A2DD006BA92E /* ViewModel.swift */,
+				99CF37112A13A822006E00BC /* Config.swift */,
 			);
 			path = SellableApp;
 			sourceTree = "<group>";
@@ -92,6 +99,8 @@
 			children = (
 				995D1E0C2A129D81006BA92E /* NetworkError.swift */,
 				995D1E0A2A129C63006BA92E /* QrCode.swift */,
+				99CF37132A13B224006E00BC /* OrderRequest.swift */,
+				99CF37152A13B3A6006E00BC /* OrderResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,10 +184,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				991ACE522A0FEB9F00BDF502 /* ScannerView.swift in Sources */,
+				99CF37142A13B224006E00BC /* OrderRequest.swift in Sources */,
 				995D1E0B2A129C63006BA92E /* QrCode.swift in Sources */,
 				991ACE502A0FEB9F00BDF502 /* SellableApp.swift in Sources */,
 				998BC85A2A0FFF5F00720070 /* QrView.swift in Sources */,
+				99CF37162A13B3A6006E00BC /* OrderResponse.swift in Sources */,
 				995D1E0D2A129D81006BA92E /* NetworkError.swift in Sources */,
+				99CF37122A13A822006E00BC /* Config.swift in Sources */,
 				995D1E0F2A129DAA006BA92E /* Service.swift in Sources */,
 				995D1E112A12A2DD006BA92E /* ViewModel.swift in Sources */,
 			);
