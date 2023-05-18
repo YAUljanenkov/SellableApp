@@ -17,6 +17,9 @@
 		995D1E0D2A129D81006BA92E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D1E0C2A129D81006BA92E /* NetworkError.swift */; };
 		995D1E0F2A129DAA006BA92E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D1E0E2A129DAA006BA92E /* Service.swift */; };
 		995D1E112A12A2DD006BA92E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D1E102A12A2DD006BA92E /* ViewModel.swift */; };
+		99642B822A1646570097B727 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 99642B812A1646570097B727 /* SDWebImageSVGCoder */; };
+		99642B852A1646800097B727 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 99642B842A1646800097B727 /* SDWebImageSwiftUI */; };
+		99642B882A1655110097B727 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 99642B872A1655110097B727 /* AlertToast */; };
 		998BC85A2A0FFF5F00720070 /* QrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998BC8592A0FFF5F00720070 /* QrView.swift */; };
 		99CF37122A13A822006E00BC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CF37112A13A822006E00BC /* Config.swift */; };
 		99CF37142A13B224006E00BC /* OrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CF37132A13B224006E00BC /* OrderRequest.swift */; };
@@ -45,7 +48,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99642B852A1646800097B727 /* SDWebImageSwiftUI in Frameworks */,
+				99642B822A1646570097B727 /* SDWebImageSVGCoder in Frameworks */,
 				991ACE5F2A0FED9100BDF502 /* CodeScanner in Frameworks */,
+				99642B882A1655110097B727 /* AlertToast in Frameworks */,
 				995D1E082A129B8E006BA92E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +130,9 @@
 			packageProductDependencies = (
 				991ACE5E2A0FED9100BDF502 /* CodeScanner */,
 				995D1E072A129B8E006BA92E /* Alamofire */,
+				99642B812A1646570097B727 /* SDWebImageSVGCoder */,
+				99642B842A1646800097B727 /* SDWebImageSwiftUI */,
+				99642B872A1655110097B727 /* AlertToast */,
 			);
 			productName = SellableApp;
 			productReference = 991ACE4C2A0FEB9F00BDF502 /* SellableApp.app */;
@@ -156,6 +165,9 @@
 			packageReferences = (
 				991ACE5D2A0FED9100BDF502 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				995D1E062A129B8E006BA92E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				99642B802A1646570097B727 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
+				99642B832A1646800097B727 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				99642B862A1655110097B727 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 991ACE4D2A0FEB9F00BDF502 /* Products */;
 			projectDirPath = "";
@@ -417,6 +429,30 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		99642B802A1646570097B727 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		99642B832A1646800097B727 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		99642B862A1655110097B727 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -429,6 +465,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 995D1E062A129B8E006BA92E /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		99642B812A1646570097B727 /* SDWebImageSVGCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99642B802A1646570097B727 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
+			productName = SDWebImageSVGCoder;
+		};
+		99642B842A1646800097B727 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99642B832A1646800097B727 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		99642B872A1655110097B727 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99642B862A1655110097B727 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,6 +7,8 @@
 
 import SwiftUI
 import Combine
+import SDWebImageSwiftUI
+import AlertToast
 
 struct QrView: View {
     var qrId: String
@@ -24,28 +26,38 @@ struct QrView: View {
     }
     
     var body: some View {
-        VStack {
-            Text(qrId)
-            Text(viewModel.order.comment)
-            AsyncImage(url: URL(string: viewModel.qr?.qrUrl ?? ""))
-            TextField("Сумма платежа", text: $viewModel.order.amount).keyboardType(.numberPad)
-                .onReceive(Just(viewModel.order.amount)) { newValue in
-                    let filtered = newValue.filter { "0123456789".contains($0) }
-                    if filtered != newValue {
-                        viewModel.order.amount = filtered
+        ScrollView {
+            VStack(spacing: 20) {
+                Text(viewModel.qr.qrId)
+                WebImage(url: URL(string: "https://test.ecom.raiffeisen.ru/api/sbp/v2/qr/AS7F126E74B844FBA9584BE6A5B27B42/image"), options: [], context: [.imageThumbnailPixelSize : CGSize.zero])
+                    .placeholder {ProgressView()}
+                    .resizable()
+                    .background { Color.white }
+                    .frame(width: 200, height: 200)
+                TextField("Сумма платежа", text: $viewModel.order.amount).keyboardType(.numberPad)
+                    .onReceive(Just(viewModel.order.amount)) { newValue in
+                        let filtered = newValue.filter { "0123456789".contains($0) }
+                        if filtered != newValue {
+                            viewModel.order.amount = filtered
+                        }
                     }
-                }
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Комментарий", text: $viewModel.order.comment, axis: .vertical)
-                .lineLimit(5...10)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            Button("Активировать", action: activate)
-                .buttonStyle(GrowingButton())
-        }
-        .padding(20)
-        .navigationTitle("QR код")
-        .alert(isPresented: $viewModel.showAlert) {
-            Alert(title: Text("Error"), message: Text (viewModel.loadingError ), dismissButton: .default(Text("OK")))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("Комментарий", text: $viewModel.order.comment, axis: .vertical)
+                    .lineLimit(5...10)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Button("Активировать", action: activate)
+                    .buttonStyle(GrowingButton())
+            }
+            .padding(20)
+            .navigationTitle("QR код")
+            .alert(isPresented: $viewModel.showAlert) {
+                Alert(title: Text("Error"), message: Text (viewModel.loadingError ), dismissButton: .default(Text("OK")))
+            }
+            .toast(isPresenting: $viewModel.showToast) {
+                AlertToast(type: .complete(.gray), title: "Заказ создан!")
+            }
+        }.onTapGesture {
+            hideKeyboard()
         }
     }
 }
@@ -59,6 +71,13 @@ struct GrowingButton: ButtonStyle {
             .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
             .scaleEffect(configuration.isPressed ? 1.2 : 1)
             .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        let resign = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
     }
 }
 

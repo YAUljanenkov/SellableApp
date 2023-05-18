@@ -8,7 +8,7 @@
 import Foundation
 
 struct Config {
-    static let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNQTY5MzYxMyIsImp0aSI6IjIwMjcyYmNiLWQ3ZjUtNGRjOS1hNzU5LTE3Mzk3MDBhYWE2ZSJ9.2VZqZaMu5F5CyTwLyj4uInj46WRkhChpSpc5PCzBbbM"
-    static let ip = "51.250.97.147"
+    static let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImtlayIsImV4cGlyZXMiOjE2ODQ0MTQzMjguOTEzNjM3fQ.df-3lyP4e25XE4iwZSty9uiMR-ljtpeoBCGtzgBBuVI"
+    static let ip = "158.160.12.152"
     static let port = "8000"
 }

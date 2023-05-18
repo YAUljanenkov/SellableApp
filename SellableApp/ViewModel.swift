@@ -16,10 +16,11 @@ struct Order {
 
 class ViewModel: ObservableObject {
     
-    @Published var qr: QrCode?
+    @Published var qr: QrCode
     @Published var order: Order
     @Published var loadingError: String = ""
     @Published var showAlert: Bool = false
+    @Published var showToast: Bool = false
 
     private var cancellableSet: Set<AnyCancellable> = []
     var dataManager: ServiceProtocol
@@ -30,6 +31,7 @@ class ViewModel: ObservableObject {
         self.dataManager = dataManager
         self.qrId = qrId
         self.order = Order(amount: "", comment: "", qrId: qrId)
+        self.qr = QrCode(qrId: "", payload: "", qrUrl: "")
         getQrData()
         getOrderData()
     }
@@ -49,7 +51,9 @@ class ViewModel: ObservableObject {
         dataManager.fetchQrOrder(qrId: self.qrId)
             .sink { [weak self] (dataResponse) in
                 if dataResponse.error != nil {
-                    self?.createAlert(with: dataResponse.error!)
+                    if dataResponse.error?.backendError?.status != "404" {
+                        self?.createAlert(with: dataResponse.error!)
+                    }
                 } else {
                     self?.orderResponse = dataResponse.value!
                     self?.order.amount = String(describing: self?.orderResponse?.amount)
@@ -73,6 +77,7 @@ class ViewModel: ObservableObject {
                     self?.orderResponse = dataResponse.value!
                     self?.order.amount = String(describing: self?.orderResponse?.amount)
                     self?.order.comment = self?.orderResponse?.comment ?? ""
+                    self?.showToast = true
                 }
             }.store(in: &cancellableSet)
     }

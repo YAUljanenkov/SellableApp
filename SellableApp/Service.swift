@@ -24,8 +24,8 @@ class Service {
 extension Service: ServiceProtocol {
     func fetchQrData(qrId: String) -> AnyPublisher<DataResponse<QrCode, NetworkError>, Never> {
         let url = URL(string: "http://\(Config.ip):\(Config.port)/qr/\(qrId)")!
-        
-        return AF.request(url, method: .get)
+        let headers: HTTPHeaders = [.authorization(bearerToken: Config.token)]
+        return AF.request(url, method: .get, headers: headers)
             .validate()
             .publishDecodable(type: QrCode.self)
             .map { response in
@@ -40,8 +40,8 @@ extension Service: ServiceProtocol {
     
     func fetchQrOrder(qrId: String) -> AnyPublisher<DataResponse<OrderResponse, NetworkError>, Never> {
         let url = URL(string: "http://\(Config.ip):\(Config.port)/qr/order/\(qrId)")!
-        
-        return AF.request(url, method: .get)
+        let headers: HTTPHeaders = [.authorization(bearerToken: Config.token)]
+        return AF.request(url, method: .get, headers: headers)
             .validate()
             .publishDecodable(type: OrderResponse.self)
             .map { response in
@@ -56,7 +56,7 @@ extension Service: ServiceProtocol {
     
     func createOrder(data: OrderRequest) -> AnyPublisher<DataResponse<OrderResponse, NetworkError>, Never> {
         let url = URL(string: "http://\(Config.ip):\(Config.port)/order/create")!
-        let headers: HTTPHeaders = ["Authorization": Config.token]
+        let headers: HTTPHeaders = [.authorization(bearerToken: Config.token)]
         return AF.request(url, method: .post, parameters: data, encoder: JSONParameterEncoder.default, headers: headers).validate()
             .publishDecodable(type: OrderResponse.self)
             .map { response in
