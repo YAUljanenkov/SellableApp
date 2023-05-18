@@ -13,7 +13,7 @@ struct OrderView: View {
     var body: some View {
         List {
             HStack {
-                Text("сумма")
+                Text("Сумма")
                     .bold()
                 Spacer()
                 Text("\(String(describing: order.amount))₽")
@@ -25,18 +25,24 @@ struct OrderView: View {
                 Text(convertDate(date: order.last_time_update))
             }.padding(5)
             HStack {
+                Text("Комментарий")
+                    .bold()
+                Spacer()
+                Text(order.comment ?? "нет")
+            }.padding(5)
+            HStack {
                 Text("Статус")
                     .bold()
                 Spacer()
                 Text(order.status?.value ?? "нет")
             }.padding(5)
-            HStack {
+            VStack(alignment: .leading) {
                 Text("ID")
                     .bold()
                 Spacer()
                 Text(order.id)
             }.padding(5)
-            HStack {
+            VStack(alignment: .leading) {
                 Text("QR ID")
                     .bold()
                 Spacer()
@@ -50,7 +56,7 @@ struct OrderView: View {
         let dateFormatter = ISO8601DateFormatter()
         dateFormatter.formatOptions.insert(.withFractionalSeconds)
         let oldDate = dateFormatter.date(from: date)
-        guard let oldDate = oldDate else { return "" }
+        guard let oldDate = oldDate else { return "Error" }
         let convertDateFormatter = DateFormatter()
         convertDateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
         return convertDateFormatter.string(from: oldDate)
