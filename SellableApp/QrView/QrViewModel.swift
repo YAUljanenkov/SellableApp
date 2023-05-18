@@ -14,7 +14,7 @@ struct Order {
     var qrId: String
 }
 
-class ViewModel: ObservableObject {
+class QrViewModel: ObservableObject {
     
     @Published var qr: QrCode
     @Published var order: Order

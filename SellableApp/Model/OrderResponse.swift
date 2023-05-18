@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OrderResponse: Codable {
+struct OrderResponse: Codable, Identifiable {
     var id: String
     var amount: Int32
     var comment: String?
@@ -16,6 +16,8 @@ struct OrderResponse: Codable {
     var expirationDate: String?
     var qr: QrId
     var receiptNumber: String?
+    var last_time_update: String?
+    var mobile_number: String?
   }
 
 

@@ -14,11 +14,11 @@ struct QrView: View {
     var qrId: String
     
 
-    @ObservedObject var viewModel: ViewModel
+    @ObservedObject var viewModel: QrViewModel
     
     init(qrId: String) {
         self.qrId = qrId
-        viewModel = ViewModel(qrId: qrId)
+        viewModel = QrViewModel(qrId: qrId)
     }
     
     func activate() {
