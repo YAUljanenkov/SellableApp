@@ -11,15 +11,18 @@ import SwiftUI
 struct ScannerView: View {
     
     @State private var path = NavigationPath()
+    @State private var showAlert = false
     
     var body: some View {
         NavigationStack(path: $path) {
-            CodeScannerView(codeTypes: [.qr], showViewfinder: true, completion: handleScan)
+            CodeScannerView(codeTypes: [.qr], scanMode: .oncePerCode, showViewfinder: true, completion: handleScan)
                 .navigationTitle("Скан QR кода")
                 .cornerRadius(10.0)
                 .navigationDestination(for: String.self) { qr in
                     return QrView(qrId: qr)
                 }
+        }.alert(isPresented: $showAlert) {
+            Alert(title: Text("Ошибка"), message: Text ("Данный QR не является кассовой платёжной ссылкой СБП"), dismissButton: .default(Text("OK")))
         }
         
     }
@@ -28,12 +31,13 @@ struct ScannerView: View {
         switch result {
             case .success(let result):
             guard let qrId = parseQrString(result.string) else {
-                print("Parse failed")
+                showAlert.toggle()
                 return
             }
             path.append(qrId)
             case .failure(let error):
-                print("Scanning failed: \(error.localizedDescription)")
+                print(error)
+                showAlert.toggle()
         }
     }
     
