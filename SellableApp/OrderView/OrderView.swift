@@ -53,8 +53,8 @@ struct OrderView: View {
     
     func convertDate(date: String?) -> String {
         guard let date = date else { return "" }
-        let dateFormatter = ISO8601DateFormatter()
-        dateFormatter.formatOptions.insert(.withFractionalSeconds)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
         let oldDate = dateFormatter.date(from: date)
         guard let oldDate = oldDate else { return "Error" }
         let convertDateFormatter = DateFormatter()
